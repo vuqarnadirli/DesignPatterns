@@ -1,17 +1,24 @@
 package bean;
 
 public class Fanar {
-    private static Fanar f = null;
+    private String name = null; //effectively final
+    private Mercedes m = null;
 
-    private Fanar() {
+    public Fanar(String name, Mercedes m) {
+        this.name = name;
 
+        Mercedes mm = new Mercedes();
+        mm.name = m.name;
+        this.m = mm;
     }
-    //Effective Java
-    //Only one object created. This is SingletonPattern.
-    public static Fanar instance() {
-        if (f == null) {
-            f = new Fanar();
-        }
-        return f;
+
+    public String getName() {
+        return name;
+    }
+
+    public Mercedes getM() {
+        Mercedes mm = new Mercedes();
+        mm.name = m.name;
+        return mm;
     }
 }

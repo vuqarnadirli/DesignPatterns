@@ -1,21 +1,17 @@
 package main;
 
 import bean.BMW;
-import bean.Fanar;
 import bean.Mercedes;
+import builderPattern.Fanar;
 
 public class Main {
     public static void main(String[] args) {
-        Mercedes m = new Mercedes();
-        m.name = "test";
 
-        Fanar f = new Fanar("sss", m);
-        System.out.println(f.getM().name);
+        Fanar.FanarBuilder builder = Fanar.builder();
 
-        f.getM().name = "alma";
-        System.out.println(f.getM().name);
-
-        m.name = "alma";
-        System.out.println(f.getM().name);
+        builder.setName("dd");
+        Fanar f = builder.build();
+        builder.setName("sss");
+        System.out.println(f.getName());
     }
 }
